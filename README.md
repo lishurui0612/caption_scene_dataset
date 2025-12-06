@@ -9,7 +9,13 @@ This repository provides codes for our large-scale fMRI dataset, focusing on fou
 * Voxel-wise encoding model code for caption stimuli
 
 ---
-## Experimental Paradigm Overvew
+## Experimental Paradigm
 <p align="center">
-  <img src="assets/paradigm_overview.png" width="700">
+  <img src="assets/paradigm.png" width="700">
+</p>
+
+---
+## Preprocessing Pipeline
+<p align="center">
+  <img src="assets/preprocess.png" width="700">
 </p>
