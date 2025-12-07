@@ -29,6 +29,10 @@ Below is the QC overview demo showing cross-session alignment results for partic
   <img src="assets/S1_register.gif" width="700">
 </p>
 
+<p align="center">
+  <img src="assets/S3_register.gif" width="700">
+</p>
+
 ---
 ## Citation
 If you use this dataset or the accompanying code, please cite the following abstract presented in Journal of Vision:
