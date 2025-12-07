@@ -24,9 +24,13 @@ Below is the overview of preprocessing pipeline. The detailed procedures and imp
 
 ---
 ## Quality control
-Below is the QC overview demo showing cross-session alignment results for participant sub-03. The detailed QC procedures and implementation scripts are available in the `./quality_control/` folder.
+Below is the QC overview demo showing cross-session alignment results for participant sub-03 and sub-07. The detailed QC procedures and implementation scripts are available in the `./quality_control/` folder.
 <p align="center">
   <img src="assets/S3_register.gif" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/S7_register.gif" width="700">
 </p>
 
 ---
