@@ -3,10 +3,12 @@
 ---
 ## About
 This repository provides codes for our large-scale fMRI dataset, focusing on four core components:
-* Preprocessing pipelines for fMRI data in the `./preprocess/` folder.
-* Quality control tools for assessing preprocessing and data reliability in the `./quality_control/` folder.
-* Beta estimation using GLMSingle in the `./beta_estimate/` folder.
-* Voxel-wise encoding model code for caption stimuli in the `./encoding/` folder.
+* **Dataset**: Access the full dataset on Science Data Bank (https://www.scidb.cn/en/detail?dataSetId=3608457c9c5e4c078ecca153c3413b1b).
+* **DOI**: https://doi.org/10.57760/sciencedb.27580.
+* **Preprocessing**: Pipelines for fMRI data in the `./preprocess/` folder.
+* **Quality Control**: Tools for assessing preprocessing and data reliability in the `./quality_control/` folder.
+* **Beta Estimation**: Using GLMSingle in the `./beta_estimate/` folder.
+* **Encoding Models**: Voxel-wise encoding model code for caption stimuli in the `./encoding/` folder.
 
 ---
 ## Experimental paradigm
