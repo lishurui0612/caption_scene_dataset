@@ -52,6 +52,12 @@ Li, Y., Li, S., Jin, Z., Gu, S., & Zhang, R. Y. (2025). A large-scale vision-lan
 ```
 
 ---
+## Acknowledgements
+This work was supported by the **National Science and Technology Major Project of China** (Grant No. 2025ZD0217000 to Y.L.), the **National Natural Science Foundation of China** (Grant No. 32371154 to Y.L.), the **Shanghai Rising-Star Program** (Grant No. 24QA2705500 to Y.L.), and the **Lingang Laboratory** (Grant No. LG-GG-202402-06 to Y.L.).
+
+We would like to express our sincere gratitude to [**Yu-Qi You**](https://orcid.org/0009-0005-5723-1947) for the insightful discussions and support.
+
+---
 ## License
 This repository is released under the **CC BY-NC-ND 4.0** license.  
 You may use the code for research and educational purposes, but commercial use, distribution of modified versions, or sublicensing are not permitted.
