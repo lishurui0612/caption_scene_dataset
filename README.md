@@ -33,7 +33,7 @@ Below is the QC overview demo showing cross-session alignment results for partic
 
 ---
 ## Citation
-If you use this dataset or the accompanying code, please cite the following abstract presented in Journal of Vision:
+If you use this dataset or the accompanying code, please cite our paper published in **_Scientific Data_**:
 
 Li, S., Jin, Z., Gu, S. et al. A large-scale fMRI dataset for vision-language semantic association. _Sci Data_ (2026). https://doi.org/10.1038/s41597-026-07248-6
 
