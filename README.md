@@ -50,7 +50,7 @@ Li, S., Jin, Z., Gu, S. et al. A large-scale fMRI dataset for vision-language se
 
 ---
 ## Acknowledgements
-This work was supported by the **National Science and Technology Major Project of China** (Grant No. 2025ZD0217000 to Y.L.), the **National Natural Science Foundation of China** (Grant No. 32371154 to Y.L.), the **Shanghai Rising-Star Program** (Grant No. 24QA2705500 to Y.L.), and the **Lingang Laboratory** (Grant No. LG-GG-202402-06 to Y.L.).
+This work is supported by the **National Science and Technology Major Project of China** (2025ZD0217000, Y.L.), **National Natural Science Foundation of China** (32371154, Y.L.; 32441102, R.-Y.Z), **Shanghai Rising-Star Program** (24QA2705500, Y.L.), and the **Lin Gang Laboratory** (LG-GG-202402-06 and LGL-1987-18, Y.L.). The computations in this research are supported by the HPC Platform of ShanghaiTech University.
 
 We would like to express our sincere gratitude to [**Yu-Qi You**](https://orcid.org/0009-0005-5723-1947) for the insightful discussions and support.
 
