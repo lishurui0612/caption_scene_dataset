@@ -1,10 +1,11 @@
-# A large-scale vision-language fMRI dataset for multi-modal semantic processing
+# A large-scale vision-language fMRI dataset for multi-modal semantic association
 
 ---
 ## About
 This repository provides codes for our large-scale fMRI dataset, focusing on four core components:
+* **Article**: Paper published in [_Scientific Data_](https://doi.org/10.1038/s41597-026-07248-6) (2026).
 * **Dataset**: Access the full dataset on [Science Data Bank](https://www.scidb.cn/en/detail?dataSetId=3608457c9c5e4c078ecca153c3413b1b).
-* **DOI**: https://doi.org/10.57760/sciencedb.27580.
+* **DOI**: https://doi.org/10.57760/sciencedb.27580. 
 * **Preprocessing**: Pipelines for fMRI data in the `./preprocess/` folder.
 * **Quality Control**: Tools for assessing preprocessing and data reliability in the `./quality_control/` folder.
 * **Beta Estimation**: Using GLMSingle in the `./beta_estimate/` folder.
@@ -35,19 +36,16 @@ Below is the QC overview demo showing cross-session alignment results for partic
 ## Citation
 If you use this dataset or the accompanying code, please cite the following abstract presented in Journal of Vision:
 
-Li, Y., Li, S., Jin, Z., Gu, S., & Zhang, R. Y. (2025). A large-scale vision-language fMRI dataset for multi-modal semantic processing. Journal of Vision, 25(9), 2445–2445.
+Li, S., Jin, Z., Gu, S. et al. A large-scale fMRI dataset for vision-language semantic association. _Sci Data_ (2026). https://doi.org/10.1038/s41597-026-07248-6
 
 ### **BibTeX**
 ```bibtex
-@article{li2025large,
-  title={A large-scale vision-language fMRI dataset for multi-modal semantic processing},
-  author={Li, Yuanning and Li, Shurui and Jin, Zheyu and Gu, Shi and Zhang, Ru-Yuan},
-  journal={Journal of Vision},
-  volume={25},
-  number={9},
-  pages={2445--2445},
-  year={2025},
-  publisher={The Association for Research in Vision and Ophthalmology}
+@article{li2026large,
+  title={A large-scale fMRI dataset for vision-language semantic association},
+  author={Li, Shurui and Jin, Zheyu and Gu, Shi and Zhang, Ru-Yuan and Li, Yuanning},
+  journal={Scientific Data},
+  year={2026},
+  publisher={Nature Publishing Group UK London}
 }
 ```
 
