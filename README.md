@@ -4,7 +4,8 @@
 ## Notes
 We are currently updating a small subset of the released data files to correct file naming and organization issues. Some files may be temporarily unavailable during this process and will be re-uploaded after the update is completed. 
 
-We will complete the data update as soon as possible.
+During this period, the dataset can be accessed through the following temporary link: https://www.scidb.cn/s/6v6NVb
+Please note that the FreeSurfer results and eye-tracking data may be temporarily unavailable. We will complete the data update as soon as possible.
 
 If you need access to the relevant data during this period, please concat lishr2022@shanghaitech.edu.cn.
 
