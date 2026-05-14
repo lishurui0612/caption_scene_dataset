@@ -1,13 +1,13 @@
 # A large-scale vision-language fMRI dataset for multi-modal semantic association
 
 --- 
-## Notes
-We are currently updating a small subset of the released data files to correct file naming and organization issues. Some files may be temporarily unavailable during this process and will be re-uploaded after the update is completed. 
+## Updates
 
-During this period, the dataset can be accessed through the following temporary link: https://www.scidb.cn/s/6v6NVb
-Please note that the FreeSurfer results and eye-tracking data may be temporarily unavailable. We will complete the data update as soon as possible.
+The dataset update was completed on May 14, 2026.
 
-If you need access to the relevant data during this period, please concat lishr2022@shanghaitech.edu.cn.
+In this update, we restored and revised the _`pp_eyetrack`_ directory, including both the raw EDF files and the processed `.mat` files. The FreeSurfer results and eye-tracking data are now available again.
+
+If you have any questions or are interested in exploring research topics related to this dataset, please feel free to contact lishr2022@shanghaitech.edu.cn.
 
 ---
 ## About
