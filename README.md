@@ -3,13 +3,9 @@
 --- 
 ## Updates
 
-🔄 **May 14, 2026:** The main CSD dataset was updated, with the `pp_eyetrack` directory restored and revised.
+🔄 **May 14, 2026:** The main CSD dataset was updated, with the `pp_eyetrack` and `freesurfer_results` directory restored and revised.
 
-🔄 **May 14, 2026:** The FreeSurfer results and eye-tracking data became available again.
-
-🔄 **May 23, 2026:** The CSD extended derivatives dataset was released. https://www.scidb.cn/s/EbQ7fy
-
-🔄 **May 23, 2026:** The extended derivatives dataset was updated with retinotopic mapping results and related visual ROI files.
+🔄 **May 23, 2026:** [The CSD extended derivatives dataset](https://www.scidb.cn/s/EbQ7fy) was released. The extended derivatives dataset was updated with retinotopic mapping results and related visual ROI files.
 
 🔄 **Future updates:** Future lightweight derivative updates will be added to the extended derivatives dataset.
 
