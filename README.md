@@ -7,6 +7,8 @@
 
 🔄 **May 23, 2026:** [The CSD extended derivatives dataset](https://www.scidb.cn/en/detail?dataSetId=41c23f6e71a343739e4833cefd7214e8) was released. The extended derivatives dataset was updated with retinotopic mapping results and related visual ROI files.
 
+🔄 **Jul 09, 2026:** The CSD extended derivatives dataset was updated, with **translated English captions** added.
+
 🔄 **Future updates:** Future lightweight derivative updates will be added to the extended derivatives dataset.
 
 🔄 **Contact:** For questions or potential research topics, please contact lishr2022@shanghaitech.edu.cn.
@@ -47,6 +49,8 @@ Below is the QC overview demo showing cross-session alignment results for partic
 If you use this dataset or the accompanying code, please cite our paper published in **_Scientific Data_**:
 
 Li, S., Jin, Z., Gu, S. et al. A large-scale fMRI dataset for vision-language semantic association. _Sci Data_ (2026). https://doi.org/10.1038/s41597-026-07248-6
+        
+        
 
 ### **BibTeX**
 ```bibtex
