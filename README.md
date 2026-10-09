@@ -9,6 +9,8 @@
 
 🔄 **Jul 09, 2026:** The CSD extended derivatives dataset was updated, with **translated English captions** added.
 
+🔄 **Oct 09, 2026:** The fMRI preprocessing code was corrected to address two implementation mistakes in the previously released scripts: slice-acquisition times from BIDS JSON files are now converted from seconds to the fractional-TR shifts expected by FSL `slicetimer`, using the actual AP/PA repetition times; and EPI-to-T1 boundary-based registration now uses the FAST white-matter class (`seg_2`) and performs BBR optimization rather than applying only the initialization matrix.
+
 🔄 **Future updates:** Future lightweight derivative updates will be added to the extended derivatives dataset.
 
 🔄 **Contact:** For questions or potential research topics, please contact lishr2022@shanghaitech.edu.cn.
@@ -36,6 +38,15 @@ Below is the overview of preprocessing pipeline. The detailed procedures and imp
 <p align="center">
   <img src="assets/preprocess.png" width="700">
 </p>
+
+### Preprocessing correction notice
+
+The preprocessing scripts were audited and corrected on October 9, 2026. Earlier repository versions contained two mistakes:
+
+1. BIDS `SliceTiming` values, which are expressed in seconds, were passed directly to FSL `slicetimer --tcustom`. The current implementation converts them to FSL fractional-TR shifts, reads the actual repetition time independently for AP and PA data, checks that the timing-vector length matches the NIfTI slice count, and performs slice-timing correction before reorientation.
+2. The BBR command used FAST `seg_1` as the white-matter mask and included `-applyxfm`. In a standard three-class FAST segmentation, `seg_1` is gray matter and `seg_2` is white matter; furthermore, `-applyxfm` prevented the intended BBR refinement. The current implementation uses `seg_2` and runs the BBR optimizer from the mutual-information initialization.
+
+The corrected implementation is in [`preprocess/S3_preprocess.sh`](preprocess/S3_preprocess.sh), with BIDS-to-FSL timing conversion in [`preprocess/extract_ST.py`](preprocess/extract_ST.py). Researchers rerunning the preprocessing pipeline should use the current repository version. This code update does not by itself indicate that previously distributed derivative files have been regenerated.
 
 ---
 ## Quality control

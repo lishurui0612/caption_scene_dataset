@@ -15,7 +15,7 @@ do
       if [ $lines -eq 0 ]; then
         PhaseAP=$(find $t -name "*AP_2.5mm*.nii.gz")
         PhasePA=$(find $t -name "*PA_2.5mm*.nii.gz")
-        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $t $T1 $PhaseAP $PhasePA 0 156 $Subject_name
+        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $t $T1 $PhaseAP $PhasePA 0 156 $Subject_name
         bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $t
       fi
     done
@@ -29,7 +29,7 @@ do
     if [ $lines -eq 0 ]; then
       PhaseAP=$(find $file -name "*AP_2.5mm*.nii.gz")
       PhasePA=$(find $file -name "*PA_2.5mm*.nii.gz")
-      bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $file $T1 $PhaseAP $PhasePA 0 150 $Subject_name
+      bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $file $T1 $PhaseAP $PhasePA 0 150 $Subject_name
       bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $file
     fi
   fi
@@ -42,7 +42,7 @@ do
     if [ $lines -eq 0 ]; then
       PhaseAP=$(find $file -name "*AP_2.5mm*.nii.gz")
       PhasePA=$(find $file -name "*PA_2.5mm*.nii.gz")
-      bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $file $T1 $PhaseAP $PhasePA 0 150 $Subject_name
+      bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $file $T1 $PhaseAP $PhasePA 0 150 $Subject_name
       bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $file
     fi
   fi
@@ -57,7 +57,7 @@ do
       if [ $lines -eq 0 ]; then
         PhaseAP=$(find $t -name "*AP_2.5mm*.nii.gz")
         PhasePA=$(find $t -name "*PA_2.5mm*.nii.gz")
-        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
+        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
         bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $t
       fi
     done
@@ -73,7 +73,7 @@ do
       if [ $lines -eq 0 ]; then
         PhaseAP=$(find $t -name "*AP_2.5mm*.nii.gz")
         PhasePA=$(find $t -name "*PA_2.5mm*.nii.gz")
-        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
+        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
         bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $t
       fi
     done
@@ -89,7 +89,7 @@ do
       if [ $lines -eq 0 ]; then
         PhaseAP=$(find $t -name "*AP_2.5mm*.nii.gz")
         PhasePA=$(find $t -name "*PA_2.5mm*.nii.gz")
-        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
+        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $t $T1 $PhaseAP $PhasePA 0 150 $Subject_name
         bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $t
       fi
     done
@@ -105,7 +105,7 @@ do
       if [ $lines -eq 0 ]; then
         PhaseAP=$(find $t -name "*AP_2.5mm*.nii.gz")
         PhasePA=$(find $t -name "*PA_2.5mm*.nii.gz")
-        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess_new.sh $t $T1 $PhaseAP $PhasePA 0 156 $Subject_name
+        bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S3_preprocess.sh $t $T1 $PhaseAP $PhasePA 0 156 $Subject_name
         bash /public/home/lishr2022/Project/Cross-modal/Preprocess/S4_remove_file.sh $t
       fi
     done

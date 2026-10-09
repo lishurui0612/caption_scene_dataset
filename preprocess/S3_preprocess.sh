@@ -1,12 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 echo "Begin"
 date
 RootPath="/public/home/lishr2022/Project/Cross-modal/Preprocess"
 
-# ĞŞ¸Ä
-echo "¹¤×÷Ä¿Â¼:    $1"
+# ä¿®æ”¹
+echo "å·¥ä½œç›®å½•:    $1"
 
-# ĞŞ¸Ä
-ResultsPath=$1  #ResultsPathÊÇÊı¾İ´¦Àíºó×îÖÕ±£´æµÄÎ»ÖÃ
+# ä¿®æ”¹
+ResultsPath=$1  #ResultsPathæ˜¯æ•°æ®å¤„ç†åæœ€ç»ˆä¿å­˜çš„ä½ç½®
 T1=$2
 PhaseAP=$3
 PhasePA=$4
@@ -24,10 +27,8 @@ SBRefPA=${ResultsPath}/SBRefPA.nii.gz
 echo reorient2std
 echo "########################################"
 fslreorient2std $T1 $T1
-fslreorient2std $PhaseAP $PhaseAP
-fslreorient2std $PhasePA $PhasePA
 
-##########±£´æÖĞ¼ä½á¹ûµÄ×ÓÎÄ¼ş¼Ğ##########
+##########ä¿å­˜ä¸­é—´ç»“æœçš„å­æ–‡ä»¶å¤¹##########
 
 OutputDC="${ResultsPath}/DC"
 OutputMC="${ResultsPath}/MC"
@@ -38,7 +39,7 @@ OutputFIG="${ResultsPath}/FIG"
 OutputREG="${ResultsPath}/REG"
 OutputSURF="${ResultsPath}/SURF"
 
-##########ÌáÈ¡ÖĞ¼äÖ¡#########
+##########æå–ä¸­é—´å¸§#########
 
 echo "Trim fMRI responses"
 
@@ -48,21 +49,30 @@ fslroi ${PhasePA} ${cutPA} $starttime $num_volumes
 ##########Slice Timing Correction#########
 
 echo "Slice timing correction"
-python ${RootPath}/extract_ST.py --path ${ResultsPath}
-slicetimer -i ${cutAP} -o ${ResultsPath}/AP_st -r 2 --tcustom=${ResultsPath}/ST_AP.txt
-slicetimer -i ${cutPA} -o ${ResultsPath}/PA_st -r 2 --tcustom=${ResultsPath}/ST_PA.txt
+AP_json="${PhaseAP%.nii.gz}.json"
+PA_json="${PhasePA%.nii.gz}.json"
+python ${RootPath}/extract_ST.py --path "${ResultsPath}" --ap-json "${AP_json}" --pa-json "${PA_json}"
+TR_AP=$(<"${ResultsPath}/TR_AP.txt")
+TR_PA=$(<"${ResultsPath}/TR_PA.txt")
+slicetimer -i ${cutAP} -o ${ResultsPath}/AP_st -r "${TR_AP}" --tcustom=${ResultsPath}/ST_AP.txt
+slicetimer -i ${cutPA} -o ${ResultsPath}/PA_st -r "${TR_PA}" --tcustom=${ResultsPath}/ST_PA.txt
 
 AP_st=${ResultsPath}/AP_st.nii.gz
 PA_st=${ResultsPath}/PA_st.nii.gz
 
-##########ÌáÈ¡Æ½¾ùÖ¡×÷Îª²Î¿¼########
+# Keep the JSON SliceTiming order matched to the original NIfTI while STC runs.
+# Reorient only the corrected outputs so downstream geometry remains unchanged.
+fslreorient2std ${AP_st} ${AP_st}
+fslreorient2std ${PA_st} ${PA_st}
+
+##########æå–å¹³å‡å¸§ä½œä¸ºå‚è€ƒ########
 
 echo "Select SBRef images"
 
 fslmaths ${AP_st} -Tmean ${SBRefAP}
 fslmaths ${PA_st} -Tmean ${SBRefPA}
 
-##########topup½ÃÕı##########
+##########topupçŸ«æ­£##########
 
 echo "EPI distortion Correction using topup"
 date
@@ -93,7 +103,7 @@ convertwarp --relout --rel -r $SBRefPA --premat=${OutputDC}/MotionMatrix_02.mat 
 applywarp --rel --interp=spline -i ${SBRefPA} -r ${SBRefPA} -w ${OutputDC}/SBRefPA2FMWarpField.nii.gz -o ${OutputDC}/SBRefPA_dc.nii.gz
 fslmaths ${OutputDC}/SBRefPA_dc.nii.gz -mul ${OutputDC}/Jacobian_02.nii.gz ${OutputDC}/SBRefPA_dc_jac.nii.gz
 
-##########²ğ·Ö4D fMRIÎª3D fMRI##########
+##########æ‹†åˆ†4D fMRIä¸º3D fMRI##########
 
 echo "Split 4D fMRI to 3D fMRI"
 
@@ -170,7 +180,7 @@ else
   Ref_img=${Predefined_Ref_img}
 fi
 
-##########Í·¶¯½ÃÕı##########
+##########å¤´åŠ¨çŸ«æ­£##########
 
 echo "Head Motion Correction using mcflirt"
 echo "########################################"
@@ -179,15 +189,15 @@ mkdir -p ${OutputMC}
 
 if [ -f "$AP_st_dc" ]; then
   mcflirt -in ${AP_st_dc} -r ${Ref_img} -o ${OutputMC}/AP_st_dc_mc -mats -plots -report -stages 4 -sinc_final
-  python $RootPath/calcul_FD.py ${OutputMC}/AP_st_dc_mc.par ${OutputMC}/PhaseAP_FD.txt  # ¼ÆËãÁ½Ö¡Ö®²î
+  python $RootPath/calcul_FD.py ${OutputMC}/AP_st_dc_mc.par ${OutputMC}/PhaseAP_FD.txt  # è®¡ç®—ä¸¤å¸§ä¹‹å·®
 fi
 
 if [ -f "$PA_st_dc" ]; then
   mcflirt -in ${PA_st_dc} -r ${Ref_img} -o ${OutputMC}/PA_st_dc_mc -mats -plots -report -stages 4 -sinc_final
-  python $RootPath/calcul_FD.py ${OutputMC}/PA_st_dc_mc.par ${OutputMC}/PhasePA_FD.txt  # ¼ÆËãÁ½Ö¡Ö®²î
+  python $RootPath/calcul_FD.py ${OutputMC}/PA_st_dc_mc.par ${OutputMC}/PhasePA_FD.txt  # è®¡ç®—ä¸¤å¸§ä¹‹å·®
 fi
 
-##########½«EPIÅä×¼µ½T1##########
+##########å°†EPIé…å‡†åˆ°T1##########
 
 echo "register EPI to T1"
 date
@@ -199,8 +209,8 @@ bet ${T1} ${OutputSEG}/T1_bet -R -B -m -f 0.3
 fast -t 1 -n 3 -g ${OutputSEG}/T1_bet
 
 T1_bet="${OutputSEG}/T1_bet.nii.gz"
-T1_GM="${OutputSEG}/T1_bet_seg_0.nii.gz"
-T1_WM="${OutputSEG}/T1_bet_seg_1.nii.gz"
+T1_GM="${OutputSEG}/T1_bet_seg_1.nii.gz"
+T1_WM="${OutputSEG}/T1_bet_seg_2.nii.gz"
 Tissue="${OutputSEG}/T1_bet_seg.nii.gz"
 
 RefImgforOneStep=${OutputSEG}/T1DownResample.nii.gz
@@ -218,7 +228,7 @@ vout=Epi2Str
 flirt -ref ${T1_bet} -in ${Ref_img} -dof ${dof} -omat ${OutputF2S}/${vout}_init.mat -out ${OutputF2S}/${vout}_init -cost mutualinfo -searchcost mutualinfo -searchrx -30 30 -searchry -30 30 -searchrz -30 30
 # do the second time regisration using bbr
 echo "Running BBR"
-flirt -ref ${T1_bet} -in ${Ref_img} -dof ${dof} -cost bbr -wmseg ${T1_WM} -init ${OutputF2S}/${vout}_init.mat -applyxfm -omat ${OutputF2S}/${vout}.mat -out ${OutputF2S}/${vout} -schedule ${FSLDIR}/etc/flirtsch/bbr.sch
+flirt -ref ${T1_bet} -in ${Ref_img} -dof ${dof} -cost bbr -wmseg ${T1_WM} -init ${OutputF2S}/${vout}_init.mat -omat ${OutputF2S}/${vout}.mat -out ${OutputF2S}/${vout} -schedule ${FSLDIR}/etc/flirtsch/bbr.sch
 applywarp -i ${Ref_img} -r ${T1_bet} -o ${OutputF2S}/${vout} --premat=${OutputF2S}/${vout}.mat --interp=spline
 
 echo "one step resampling"
