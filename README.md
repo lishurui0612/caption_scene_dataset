@@ -9,7 +9,7 @@
 
 🔄 **Jul 09, 2026:** The CSD extended derivatives dataset was updated, with **translated English captions** added.
 
-🔄 **Oct 09, 2026:** The fMRI preprocessing code was corrected to address two implementation mistakes in the previously released scripts: slice-acquisition times from BIDS JSON files are now converted from seconds to the fractional-TR shifts expected by FSL `slicetimer`, using the actual AP/PA repetition times; and EPI-to-T1 boundary-based registration now uses the FAST white-matter class (`seg_2`) and performs BBR optimization rather than applying only the initialization matrix.
+🔄 **Oct 09, 2026:** Fixed mistakes in the fMRI preprocessing code.
 
 🔄 **Future updates:** Future lightweight derivative updates will be added to the extended derivatives dataset.
 
